@@ -1,0 +1,7 @@
+E:\Guilherme\Faculdade\IA\Jogo da Velha\Jogo da Velha\Jogo da Velha\bin\Debug\Jogo da Velha.exe.config
+E:\Guilherme\Faculdade\IA\Jogo da Velha\Jogo da Velha\Jogo da Velha\bin\Debug\Jogo da Velha.exe
+E:\Guilherme\Faculdade\IA\Jogo da Velha\Jogo da Velha\Jogo da Velha\bin\Debug\Jogo da Velha.pdb
+E:\Guilherme\Faculdade\IA\Jogo da Velha\Jogo da Velha\Jogo da Velha\obj\Debug\Jogo da Velha.csproj.CoreCompileInputs.cache
+E:\Guilherme\Faculdade\IA\Jogo da Velha\Jogo da Velha\Jogo da Velha\obj\Debug\Jogo da Velha.exe
+E:\Guilherme\Faculdade\IA\Jogo da Velha\Jogo da Velha\Jogo da Velha\obj\Debug\Jogo da Velha.pdb
+E:\Guilherme\Faculdade\IA\Jogo da Velha\Jogo da Velha\Jogo da Velha\obj\Debug\Jogo da Velha.csprojAssemblyReference.cache
