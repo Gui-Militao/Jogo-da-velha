@@ -48,7 +48,7 @@ namespace Jogo_da_Velha
 
       do
       {
-
+        //primeiro menu para escolher jogar ou sair do jogo
         Console.WriteLine("Bem vindo - Jogo da Velha\n");
         Console.WriteLine("1 - Jogar");
         Console.WriteLine("0 - Sair");
@@ -61,6 +61,8 @@ namespace Jogo_da_Velha
           case "1": //jogar
             do
             {
+
+              //segundo menu para escolher o modo entre dois joghadores ou um jogador(contra a maquina)
               Console.WriteLine("Bem vindo - Jogo da Velha\n");
               Console.WriteLine("1 - Dois jogadores");
               Console.WriteLine("2 - Um jogador");
@@ -79,6 +81,8 @@ namespace Jogo_da_Velha
                 case "2"://dois jogadores
                   do
                   {
+
+                    //sub memnu para dois jogadores para escolher entre facil e medio, o modo medio foi feito utilizando o conceito de agente reativo simples
                     Console.WriteLine("Bem vindo - Jogo da Velha\n");
                     Console.WriteLine("1 - Facil");
                     Console.WriteLine("2 - Médio");
@@ -93,6 +97,8 @@ namespace Jogo_da_Velha
                       case "1":
                         do
                         {
+
+                          //sub menu apenas para escolher quem comeca jogando no modo facil
                           Console.WriteLine("Bem vindo - Jogo da Velha - Fácil\n");
                           Console.WriteLine("1 - Comecar jogando");
                           Console.WriteLine("2 - Adversário comeca");
@@ -119,6 +125,7 @@ namespace Jogo_da_Velha
                       case "2":
                         do
                         {
+                          //sub menu apenas para escolher quem comeca jogando no modo medio
                           Console.WriteLine("Bem vindo - Jogo da Velha - Dificil\n");
                           Console.WriteLine("1 - Comecar jogando");
                           Console.WriteLine("2 - Adversário comeca");
@@ -159,6 +166,8 @@ namespace Jogo_da_Velha
         }
       } while (opcao != "0");
     }
+
+    //função para o jogo com dois jogadores
     public static void Jogar()
     {
       CriaTab();
@@ -177,6 +186,7 @@ namespace Jogo_da_Velha
 
     }
 
+    //função para o modo facil quando o humano comeca o jogo
     public static void Jogar2Facil()
     {
       CriaTab();
@@ -194,6 +204,8 @@ namespace Jogo_da_Velha
       }
 
     }
+
+    //função para o modo facil quando a maquina comeca o jogo
     public static void Jogar2FacilO()
     {
       CriaTab();
@@ -212,6 +224,7 @@ namespace Jogo_da_Velha
 
     }
 
+    //função para o modo medio quando o humano comeca o jogo
     public static void Jogar2Medio()
     {
       CriaTab();
@@ -228,6 +241,8 @@ namespace Jogo_da_Velha
         Jogador2Medio();
       }
     }
+
+    //função para o modo medio quando a maquina comeca o jogo
     public static void Jogar2MedioO()
     {
       CriaTab();
@@ -246,6 +261,7 @@ namespace Jogo_da_Velha
 
     }
 
+    //função apra criar o tabuleiro to jogo, utilizado em todos os modos
     public static void CriaTab()
     {
       Tabuleiro = new char[3, 3];
@@ -258,6 +274,7 @@ namespace Jogo_da_Velha
       }
     }
 
+    //função para exibir o tabuleiro atualizado apos cada jogada em todos os modos
     public static void ExibeTab()
     {
       Console.WriteLine("   1   2   3");
@@ -287,6 +304,8 @@ namespace Jogo_da_Velha
       Console.Write("\n");
     }
 
+
+    //funçao para que o jogador escolha uma linha valida
     public static int EscolheLin()
     {
       int num;
@@ -304,7 +323,7 @@ namespace Jogo_da_Velha
 
       return num;
     }
-
+    //funçao para que o jogador escolha uma coluna valida
     public static int EscolheCol()
     {
       int num;
@@ -323,6 +342,7 @@ namespace Jogo_da_Velha
       return num;
     }
 
+    //função chamada para que o primeiro jogador faça sua jogada
     public static void Jogador1()
     {
       int lin, col;
@@ -349,6 +369,7 @@ namespace Jogo_da_Velha
       }
     }
 
+    //função chamada para que o segundo jogador faça sua jogada
     public static void Jogador2()
     {
       int lin, col;
@@ -374,6 +395,7 @@ namespace Jogo_da_Velha
 
     }
 
+    //função para verificar se ocorreu vitoria ou empate
     public static Boolean Vitoria()
     {
 
@@ -444,6 +466,7 @@ namespace Jogo_da_Velha
 
     }
 
+    //função apra o modo facil, as posicoes escolhidas pela maquina são totalmente aleatorias
     public static void Jogador2Facil()
     {
       int lin, col;
@@ -468,10 +491,12 @@ namespace Jogo_da_Velha
       }
 
     }
-
+    //função do modo medio onde as escolhas feiotas pela maquina utilizam o conceito de agente reativo simples
     public static void Jogador2Medio()
     {
       int casaVazia = 0, casaPreenchida = 0, quantidadeX = 0, quantidadeO = 0;
+
+      //contador para saber quantas casas estão vazias
       for (int i = 0; i < 3; i++)
       {
         for (int j = 0; j < 3; j++)
@@ -483,6 +508,27 @@ namespace Jogo_da_Velha
         }
       }
 
+      //rpeenche uma dessas casas ao iniciop do jogo caso estejam vazias
+      if (casaVazia == 8 & Tabuleiro[2, 2] == '-' | casaVazia == 9 & Tabuleiro[2, 2] == '-')
+      {
+        Tabuleiro[2, 2] = 'O';
+        return;
+      }
+      if (casaVazia == 8 & Tabuleiro[2, 0] == '-' | casaVazia == 9 & Tabuleiro[2, 0] == '-')
+      {
+        Tabuleiro[2, 0] = 'O';
+        return;
+      }
+      if (casaVazia == 8 & Tabuleiro[0, 2] == '-' | casaVazia == 9 & Tabuleiro[0, 2] == '-')
+      {
+        Tabuleiro[0, 2] = 'O';
+        return;
+      }
+      if (casaVazia == 8 & Tabuleiro[0, 0] == '-' | casaVazia == 9 & Tabuleiro[0, 0] == '-')
+      {
+        Tabuleiro[0, 0] = 'O';
+        return;
+      }
       if (casaVazia == 8 & Tabuleiro[1, 1] == '-' | casaVazia == 9 & Tabuleiro[1, 1] == '-')
       {
         Tabuleiro[1, 1] = 'O';
@@ -492,6 +538,7 @@ namespace Jogo_da_Velha
       /******************************/
 
       //escolhe posição na linha quando ja tem duas peças
+      //primeira percepção, marca a posição da linha caso ja existam duas pecas colcoadas
       for (int i = 0; i < 3; i++)
       {
         for (int j = 0; j < 3; j++)
@@ -517,6 +564,7 @@ namespace Jogo_da_Velha
 
       quantidadeO = 0;
       //escolhe posição na coluna quando ja tem duas peças
+      //segunda percepção, marca a posição da coluna caso ja existam duas pecas colcoadas
       for (int i = 0; i < 3; i++)
       {
         for (int j = 0; j < 3; j++)
@@ -544,6 +592,7 @@ namespace Jogo_da_Velha
 
 
       //escolhe posição na primeira diagonal O
+      //terceira percepção, marca a posição da primeira diagonal caso ja existam duas pecas colcoadas
       quantidadeO = 0;
       for (int i = 0; i < 1; i++)
       {
@@ -569,6 +618,7 @@ namespace Jogo_da_Velha
       }
 
       //escolhe posição na segunda diagonal O
+      //quarta percepção, marca a posição da segunda diagonal caso ja existam duas pecas colcoadas
       for (int i = 0; i < 1; i++)
       {
         int aux = 0;
@@ -595,13 +645,12 @@ namespace Jogo_da_Velha
         }
         quantidadeO = 0;
       }
-
+            
       /******************************/
 
-
-      //escolhe posição na primeira diagonal X
       quantidadeO = 0;
-      //escolhe posição na coluna quando ja tem duas peças
+      
+      //quinta percepção, marca a posição da primeira diagonal caso ja existam duas pecas colcoadas do adversário
       for (int i = 0; i < 1; i++)
       {
         for (int j = 0; j < 3; j++)
@@ -626,6 +675,7 @@ namespace Jogo_da_Velha
       }
 
       //escolhe posição na segunda diagonal X
+      //sexta percepção, marca a posição da coluna onde ja existam duas pecas colcoadas do adversário
       for (int i = 0; i < 1; i++)
       {
         int aux = 0;
@@ -659,6 +709,7 @@ namespace Jogo_da_Velha
 
 
       //escolhe posição na linha
+      //setima percepção, marca a posição da linha caso ja existam duas pecas colcoadas do adversário
       for (int i = 0; i < 3; i++)
       {
         for (int j = 0; j < 3; j++)
@@ -683,7 +734,8 @@ namespace Jogo_da_Velha
       }
 
       quantidadeX = 0;
-      //escolhe posição na Coluna
+      //escolhe posição na coluna
+      //oitava percepção, marca a posição da coluna caso ja existam duas pecas colcoadas do adversário
       for (int i = 0; i < 3; i++)
       {
         for (int j = 0; j < 3; j++)
@@ -707,10 +759,61 @@ namespace Jogo_da_Velha
         quantidadeX = 0;
       }
 
+      //nona percepção, marca a posição da linha caso ja exista uma peca colcoada
+      for (int i = 0; i < 3; i++)
+      {
+        for (int j = 0; j < 3; j++)
+        {
+          if (Tabuleiro[i, j] == 'O')
+            quantidadeO++;
+
+        }
+
+        if (quantidadeO == 1)
+        {
+          for (int j = 0; j < 3; j++)
+          {
+            if (Tabuleiro[i, j] == '-')
+            {
+              Tabuleiro[i, j] = 'O';
+              return;
+            }
+          }
+        }
+        quantidadeO = 0;
+      }
+
+      quantidadeO = 0;
+
+      //decima percepção, marca a posição da coluna caso ja exista uma peca colcoada
+      for (int i = 0; i < 3; i++)
+      {
+        for (int j = 0; j < 3; j++)
+        {
+          if (Tabuleiro[j, i] == 'O')
+            quantidadeO++;
+
+        }
+
+        if (quantidadeO == 1)
+        {
+          for (int j = 0; j < 3; j++)
+          {
+            if (Tabuleiro[j, i] == '-')
+            {
+              Tabuleiro[j, i] = 'O';
+              return;
+            }
+          }
+        }
+        quantidadeO = 0;
+      }
+      /*termina aqui*/
 
       /******************************/
       quantidadeX = 0;
       //escolhe posição na linha quando o adversario so colocou uma peça na linha
+      //decima primeira percepção, marca a posição da linha caso ja exista uma pecas colcoada do adversário
       for (int i = 0; i < 3; i++)
       {
         for (int j = 0; j < 3; j++)
@@ -731,10 +834,12 @@ namespace Jogo_da_Velha
             }
           }
         }
+        quantidadeX = 0;
       }
 
-      quantidadeX = 0;
+      
       //escolhe posição na coluna quando o adversario so colocou uma peça na coluna
+      //decima segunda percepção, marca a posição da coluna caso ja exista uma peca colcoada do adversário
       for (int i = 0; i < 3; i++)
       {
         for (int j = 0; j < 3; j++)
@@ -754,10 +859,12 @@ namespace Jogo_da_Velha
               return;
             }
           }
-        }        
+        }
+        quantidadeX = 0;
       }
     }
 
+    //função que envia posicoes aleatorias para o modo facil
     private static Posicao RandomPosicao()
     {
       int indice = 0;
